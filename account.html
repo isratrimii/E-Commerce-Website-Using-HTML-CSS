@@ -1,0 +1,153 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<style>
+     body {background-color: greenyellow;}
+</style>
+
+    <center>
+        <br> <br> <br>
+    
+    <label for="txtEmail">Email:</label><br>
+    <input type="text" value="" placeholder="Enter your email" id="txtEmail" name="txtEmail">
+    <span id="spnIsEmailValid"></span><br><br>
+
+        <label for="txtPhoneNumber">Phone Number:</label><br>
+        <input type="text" value="" placeholder="Enter your phone number" id="txtPhoneNumber" name="txtPhoneNumber">
+        <span id="spnIsPhoneNumberValid"></span><br><br>
+
+        <label for="pwd">Password:</label><br>
+        <input type="password" value="" placeholder="Enter your password" id="pwd" name="pwd">
+        <span id="spnIsPasswordValid"></span><br><br>
+
+        <label for="cpwd">Confirm Password:</label><br>
+        <input type="password" value="" placeholder="Confirm your password" id="cpwd" name="cpwd">
+        <span id="spnIsStudentCPasswordValid"></span><br><br>
+
+    
+
+        <input type="submit" value="SUBMIT">
+        <input type="reset" value="RESET">
+    </form>
+    </center>
+</body>
+<script type="text/javascript">
+    function validate(){
+        var isEmailValid=true;
+        var isPhoneNumberValid=true;
+       
+        var isPasswordValid=true;
+        var isCPasswordValid=true;
+        
+        if(document.getElementById("txtEmail").value=="")
+        {
+            isStudentEmailValid=false;
+            document.getElementById("spnIsEmailValid").innerHTML="&#x2716; Please enter your mail address";
+            document.getElementById("spnIsEmailValid").style.color="red";
+            //return false;
+        }
+        else if(/^\w+([\.-]?\w+)*@\w+([-]?\w+)*\.\w{2,3}([\.]?\w{2,3})*$/.test(document.getElementById("txtStudentEmail").value)==false)
+        {
+            isStudentEmailValid=false;
+            document.getElementById("spnIsEmailValid").innerHTML="&#x2716; Please enter your mail address";
+            document.getElementById("spnIsEmailValid").style.color="red";
+            //return false;
+        }
+        else{
+            isEmailValid = true;
+            document.getElementById("spnIsEmailValid").innerHTML="&#x2714; Valid Email";
+            document.getElementById("spnIsEmailValid").style.color="green";
+            //return true;
+
+        }
+
+        if(document.getElementById("txtPhoneNumber").value=="")
+        {
+            isPhoneNumberValid=false;
+            document.getElementById("spnIsPhoneNumberValid").innerHTML="&#x2716; Please enter your phone number";
+            document.getElementById("spnIsPhoneNumberValid").style.color="red";
+            //return false;
+        }
+        else if(/^01\d{9}$/.test(document.getElementById("txtPhoneNumber").value)==false)
+        {
+            isPhoneNumberValid=false;
+            document.getElementById("spnIsPhoneNumberValid").innerHTML="&#x2716; Please enter your phone number";
+            document.getElementById("spnIsPhoneNumberValid").style.color="red";
+            //return false;
+        }
+        else{
+            isPhoneNumberValid = true;
+            document.getElementById("spnIsPhoneNumberValid").innerHTML="&#x2714; Valid Phone number";
+            document.getElementById("spnIsPhoneNumberValid").style.color="green";
+            //return true;
+
+        }
+
+        if(document.getElementById("pwd").value=="")
+        {
+        isPasswordValid=false;
+            document.getElementById("spnIsPasswordValid").innerHTML="&#x2716; Please enter your password";
+            document.getElementById("spnIsPasswordValid").style.color="red";
+            //return false;
+        }
+        else{
+            isPasswordValid = true;
+            document.getElementById("spnIsPasswordValid").innerHTML="&#x2714; Valid Password";
+            document.getElementById("spnIsPasswordValid").style.color="green";
+            //return true;
+
+        }
+
+        if(document.getElementById("cpwd").value=="")
+        {
+            isCPasswordValid=false;
+            document.getElementById("spnIsCPasswordValid").innerHTML="&#x2716; Please enter your password";
+            document.getElementById("spnIsCPasswordValid").style.color="red";
+            //return false;
+        }
+        else if(document.getElementById("cpwd").value!=document.getElementById("pwdStudent").value)
+        {
+            
+            isCPasswordValid=false;
+            document.getElementById("spnIsCPasswordValid").innerHTML="&#x2716; Please enter your correct password";
+            document.getElementById("spnIsCPasswordValid").style.color="red";
+        }
+        else{
+            isCPasswordValid = true;
+            document.getElementById("spnIsCPasswordValid").innerHTML="&#x2714; Valid Password";
+            document.getElementById("spnIsCPasswordValid").style.color="green";
+            //return true;
+
+        }
+        
+
+       
+        if(isStudentNameValid ==false || isStudentPasswordValid==false || isStudentCPasswordValid==false || isStudentPhoneNumberValid==false || isStudentGenderValid==false || isStudentQualificationValid==false || isStudentEmailValid==false)
+        {
+            return false;
+        }
+        else{
+            return true;
+        }
+
+    }
+
+    function resetForm()
+        {
+            document.getElementById("spnIsEmailValid").innerHTML="";
+            document.getElementById("spnIsPhoneNumberValid").innerHTML="";
+            
+            document.getElementById("spnIsPasswordValid").innerHTML="";
+            document.getElementById("spnIsCPasswordValid").innerHTML="";
+            document.getElementById("spnIsPhoneNumberValid").innerHTML="";
+            
+           
+
+        }
+
+</script>
+</html>
